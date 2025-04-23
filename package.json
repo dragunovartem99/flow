@@ -17,6 +17,7 @@
 		"name": "Artem Dragunov",
 		"email": "dragunovartem99@gmail.com"
 	},
+	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"format": "prettier . --write",

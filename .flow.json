@@ -1,0 +1,12 @@
+{ 
+	"session": "example",
+	"windows": [
+		{
+			"name": "nvim",
+			"command": "nvim ."
+		},
+		{
+			"command": "bash"
+		}
+	]
+}
