@@ -1,4 +1,5 @@
 import { Command } from "../terminal/Command.js";
+import { Window } from "./Window.js";
 
 export class Session {
 	#name;
@@ -6,16 +7,16 @@ export class Session {
 
 	constructor({ session, windows }) {
 		this.#name = session;
-		this.#windows = windows;
+		this.#setWindows(windows);
 	}
 
-	get exactName() {
+	get id() {
 		return "=" + this.#name;
 	}
 
 	start() {
 		try {
-			new Command("has-session").with("-t", this.exactName).execute();
+			new Command("has-session").with("-t", this.id).execute();
 		} catch {
 			this.#create();
 		} finally {
@@ -23,17 +24,32 @@ export class Session {
 		}
 	}
 
+	#setWindows(windows) {
+		for (let i = 0; i < windows.length; i++) {
+			const { name, command } = windows[i];
+			const window = new Window(name, command);
+			window.session = this;
+			this.#windows.push(window);
+		}
+	}
+
 	#create() {
-		new Command("new-session")
-			.with("-s", this.#name)
-			.with("-n", this.#windows[0].name)
-			.with("-d")
-			.execute();
+		new Command("new-session").with("-s", this.#name).with("-d").execute();
+
+		for (let i = 0; i < this.#windows.length; i++) {
+			const window = `${this.id}:${i}`;
+
+			if (i >= 1) {
+				new Command("new-window").with("-t", window).execute();
+			}
+
+			new Command("rename-window").with("-t", window, this.#windows[i].name).execute();
+		}
 	}
 
 	#attach() {
 		new Command("attach-session")
-			.with("-t", this.exactName)
+			.with("-t", this.#windows[0].id)
 			.options({ stdio: "inherit" })
 			.execute();
 	}
