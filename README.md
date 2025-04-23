@@ -8,7 +8,7 @@ Declarative [tmux](https://github.com/tmux/tmux) session configuration for web d
 ## Installation
 
 ```shell
-npm install --save-dev @dragunovartem/flow
+npm install --save-dev @dragunovartem99/flow
 ```
 
 ## Usage
