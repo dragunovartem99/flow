@@ -1,8 +1,18 @@
 {
-	"name": "flow",
-	"version": "0.0.0",
-	"description": "",
-	"keywords": [],
+	"name": "@dragunovartem99/flow",
+	"version": "0.1.0",
+	"description": "Declarative tmux session configuration for web development",
+	"keywords": [
+		"tmux",
+		"flow",
+		"workflow",
+		"terminal",
+		"vim",
+		"nvim",
+		"neovim",
+		"configuration",
+		"json"
+	],
 	"homepage": "https://github.com/dragunovartem99/flow#readme",
 	"bugs": {
 		"url": "https://github.com/dragunovartem99/flow/issues",
@@ -19,6 +29,13 @@
 	},
 	"type": "module",
 	"main": "index.js",
+	"bin": {
+		"flow": "./index.js"
+	},
+	"files": [
+		"index.js",
+		"objects/"
+	],
 	"scripts": {
 		"format": "prettier . --write",
 		"test": "echo \"Error: no test specified\" && exit 1"
