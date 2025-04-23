@@ -17,32 +17,32 @@ npm install --save-dev @dragunovartem99/flow
 
 ```json
 {
-    "scripts": {
-        "flow": "flow"
-    }
+	"scripts": {
+		"flow": "flow"
+	}
 }
 ```
 
 2. Create `.flow.json` file in your project root  
-It might look like something like this:
+   It might look like something like this:
 
 ```json
 {
-    "session": "my-session",
-    "windows": [
-        {
-            "name": "editor",
-            "command": "nvim ."
-        },
-        {
-            "name": "tests",
-            "command": "npm run test"
-        },
-        {
-            "name": "server",
-            "command": "npm run dev"
-        }
-    ]
+	"session": "my-session",
+	"windows": [
+		{
+			"name": "editor",
+			"command": "nvim ."
+		},
+		{
+			"name": "tests",
+			"command": "npm run test"
+		},
+		{
+			"name": "server",
+			"command": "npm run dev"
+		}
+	]
 }
 ```
 
