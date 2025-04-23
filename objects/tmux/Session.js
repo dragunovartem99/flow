@@ -37,20 +37,18 @@ export class Session {
 		new Command("new-session").with("-s", this.#name).with("-d").execute();
 
 		for (let i = 0; i < this.#windows.length; i++) {
-			const window = `${this.id}:${i}`;
+			const unnamedWindow = `${this.id}:${i}`;
 
 			if (i >= 1) {
-				new Command("new-window").with("-t", window).execute();
+				new Command("new-window").with("-t", unnamedWindow).execute();
 			}
 
-			new Command("rename-window").with("-t", window, this.#windows[i].name).execute();
+			new Command("rename-window").with("-t", unnamedWindow, this.#windows[i].name).execute();
+			this.#windows[i].sendKeys();
 		}
 	}
 
 	#attach() {
-		new Command("attach-session")
-			.with("-t", this.#windows[0].id)
-			.options({ stdio: "inherit" })
-			.execute();
+		new Command("attach-session").with("-t", this.id).options({ stdio: "inherit" }).execute();
 	}
 }

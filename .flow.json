@@ -6,8 +6,7 @@
 			"command": "nvim ."
 		},
 		{
-			"name": "bash",
-			"command": "bash"
+			"name": "bash"
 		}
 	]
 }

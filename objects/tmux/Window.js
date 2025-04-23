@@ -1,3 +1,5 @@
+import { Command } from "../terminal/Command.js";
+
 export class Window {
 	#name;
 	#keys;
@@ -18,5 +20,16 @@ export class Window {
 
 	get id() {
 		return this.#session.id + ":" + this.#name;
+	}
+
+	sendKeys() {
+		if (this.#keys) {
+			new Command("send-keys")
+				.with("-t", this.id)
+				.with(`"${this.#keys}"`)
+				.with("ENTER")
+				.execute();
+		}
+		return this;
 	}
 }
