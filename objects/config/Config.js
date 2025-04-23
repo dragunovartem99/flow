@@ -8,6 +8,16 @@ export class Config {
 	}
 
 	parse() {
-		return JSON.parse(fs.readFileSync(this.#path, "utf8"));
+		const content = this.#readContent(this.#path);
+		const config = this.#parseJson(content);
+		return config;
+	}
+
+	#readContent(path) {
+		return fs.readFileSync(path, "utf8");
+	}
+
+	#parseJson(content) {
+		return JSON.parse(content);
 	}
 }
