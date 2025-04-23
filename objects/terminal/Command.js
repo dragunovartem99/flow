@@ -19,7 +19,7 @@ export class Command {
 		return this;
 	}
 
-	execute() {
+	run() {
 		execSync(["tmux", this.#instruction, this.#arguments.join(" ")].join(" "), this.#options);
 		return this;
 	}

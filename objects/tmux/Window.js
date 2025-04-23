@@ -28,7 +28,7 @@ export class Window {
 				.with("-t", this.id)
 				.with(`"${this.#keys}"`)
 				.with("ENTER")
-				.execute();
+				.run();
 		}
 		return this;
 	}
