@@ -9,13 +9,14 @@ export class Command {
 		this.#instruction = instruction;
 	}
 
-	with(argument) {
-		this.#arguments.push(argument);
+	with(...args) {
+		this.#arguments.push(...args);
 		return this;
 	}
 
 	options(options) {
 		this.#options = { ...options };
+		return this;
 	}
 
 	execute() {

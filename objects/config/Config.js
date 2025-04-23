@@ -7,7 +7,7 @@ export class Config {
 		this.#path = path;
 	}
 
-	json() {
+	parse() {
 		return JSON.parse(fs.readFileSync(this.#path, "utf8"));
 	}
 }
