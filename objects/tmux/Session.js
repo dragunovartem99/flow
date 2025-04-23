@@ -1,13 +1,11 @@
 import { Command } from "../terminal/Command.js";
-import { Window } from "./Window.js";
 
 export class Session {
 	#name;
 	#windows = [];
 
-	constructor({ session, windows }) {
-		this.#name = session;
-		this.#setWindows(windows);
+	constructor(name) {
+		this.#name = name;
 	}
 
 	get id() {
@@ -24,27 +22,23 @@ export class Session {
 		}
 	}
 
-	#setWindows(windows) {
-		for (let i = 0; i < windows.length; i++) {
-			const { name, command } = windows[i];
-			const window = new Window(name, command);
-			window.session = this;
-			this.#windows.push(window);
-		}
+	addWindow(window) {
+		window.session = this;
+		this.#windows.push(window);
 	}
 
 	#create() {
 		new Command("new-session").with("-s", this.#name).with("-d").run();
 
-		for (let i = 0; i < this.#windows.length; i++) {
-			const unnamedWindow = `${this.id}:${i}`;
+		for (const [index, window] of Object.entries(this.#windows)) {
+			const anonWindow = `${this.id}:${index}`;
 
-			if (i >= 1) {
-				new Command("new-window").with("-t", unnamedWindow).run();
+			if (index > 0) {
+				new Command("new-window").with("-t", anonWindow).run();
 			}
 
-			new Command("rename-window").with("-t", unnamedWindow, this.#windows[i].name).run();
-			this.#windows[i].sendKeys();
+			new Command("rename-window").with("-t", anonWindow, window.name).run();
+			window.sendKeys();
 		}
 	}
 
