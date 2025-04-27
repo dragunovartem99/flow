@@ -6,7 +6,7 @@ import { Config } from "./objects/config/Config.js";
 
 const cwd = process.cwd();
 
-	console.log(1);
+console.log(1);
 
 try {
 	const configPath = path.join(cwd, ".flow.json");
