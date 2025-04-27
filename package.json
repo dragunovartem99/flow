@@ -1,6 +1,6 @@
 {
 	"name": "@dragunovartem99/flow",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Declarative tmux session configuration for web development",
 	"keywords": [
 		"tmux",
@@ -34,7 +34,8 @@
 	},
 	"files": [
 		"index.js",
-		"objects/"
+		"objects/",
+		"utils/"
 	],
 	"scripts": {
 		"format": "prettier . --write",
