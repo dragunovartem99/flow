@@ -1,20 +1,28 @@
-# https://prettier.io/docs/ci
+# https://autofix.ci
 
 name: autofix.ci
 on:
     pull_request:
-    push:
-permissions: {}
+        branches: ["main"]
+
+permissions:
+    contents: read
+
 jobs:
-    prettier:
+    autofix:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout
             - uses: actions/checkout@v4
+            - name: Set up Node
             - uses: actions/setup-node@v4
-            - run: |
-                  npm ci
-                  npm run lint -- --fix
-                  npm run format
+            - name: Install dependencies
+            - run: npm ci
+            - name: Run ESLint
+            - run: npm run lint -- --fix
+            - name: Run Prettier
+            - run: npm run format
+            - name: Use Autofix
             - uses: autofix-ci/action@v1
               with:
                   commit-message: "Apply automated fixes"
