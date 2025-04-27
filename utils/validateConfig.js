@@ -7,26 +7,26 @@ import { isString } from "./guards/isString.js";
 const isNonEmptyString = (str) => isString(str) && str.trim() !== "";
 const isNonEmptyArray = (arr) => isArray(arr) && arr.length > 0;
 
-const test = (message, fn) => {
-	if (!fn()) throw new ConfigError(message);
+const validate = (message, testFn) => {
+	if (!testFn()) throw new ConfigError(message);
 };
 
 function checkConfigType(config) {
-	test("Config must be an object", () => isObject(config));
+	validate("Config must be an object", () => isObject(config));
 }
 
 function checkSessionName({ session }) {
-	test('Config must have a "session" property', () => session);
-	test('"session" must be a non-empty string', () => isNonEmptyString(session));
+	validate('Config must have a "session" property', () => session);
+	validate('"session" must be a non-empty string', () => isNonEmptyString(session));
 }
 
 function checkWindow({ name }, index) {
-	test(`Window ${index} must have "name" property`, () => name);
-	test(`Window ${index} "name" must be a non-empty string`, () => isNonEmptyString(name));
+	validate(`Window ${index} must have "name" property`, () => name);
+	validate(`Window ${index} "name" must be a non-empty string`, () => isNonEmptyString(name));
 }
 
 function checkWindows({ windows }) {
-	test('"windows" must be a non-empty array', () => isNonEmptyArray(windows));
+	validate('"windows" must be a non-empty array', () => isNonEmptyArray(windows));
 	windows.forEach(checkWindow);
 }
 
