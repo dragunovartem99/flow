@@ -17,9 +17,9 @@ npm install --save-dev @dragunovartem99/flow
 
 ```json
 {
-	"scripts": {
-		"flow": "flow"
-	}
+    "scripts": {
+        "flow": "flow"
+    }
 }
 ```
 
@@ -28,21 +28,21 @@ npm install --save-dev @dragunovartem99/flow
 
 ```json
 {
-	"session": "my-session",
-	"windows": [
-		{
-			"name": "editor",
-			"command": "nvim ."
-		},
-		{
-			"name": "tests",
-			"command": "npm run test"
-		},
-		{
-			"name": "server",
-			"command": "npm run dev"
-		}
-	]
+    "session": "my-session",
+    "windows": [
+        {
+            "name": "editor",
+            "command": "nvim ."
+        },
+        {
+            "name": "tests",
+            "command": "npm run test"
+        },
+        {
+            "name": "server",
+            "command": "npm run dev"
+        }
+    ]
 }
 ```
 
