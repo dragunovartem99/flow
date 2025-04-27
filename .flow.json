@@ -2,11 +2,11 @@
 	"session": "example",
 	"windows": [
 		{
-			"name": "nvim",
+				"name": "editor",
 			"command": "nvim ."
 		},
 		{
-			"name": "bash"
+			"name": "shell"
 		}
 	]
 }
