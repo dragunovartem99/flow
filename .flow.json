@@ -2,7 +2,7 @@
 	"session": "example",
 	"windows": [
 		{
-				"name": "editor",
+			"name": "editor",
 			"command": "nvim ."
 		},
 		{
