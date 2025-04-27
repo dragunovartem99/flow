@@ -34,7 +34,8 @@
 	},
 	"files": [
 		"index.js",
-		"objects/"
+		"objects/",
+		"utils/"
 	],
 	"scripts": {
 		"format": "prettier . --write",
