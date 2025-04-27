@@ -4,6 +4,7 @@ import path from "path";
 import { Flow } from "./objects/Flow.js";
 import { Config } from "./objects/config/Config.js";
 
+let a;
 const cwd = process.cwd();
 
 try {
