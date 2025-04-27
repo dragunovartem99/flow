@@ -1,9 +1,9 @@
 {
 	"session": "example",
-		"windows": [
+	"windows": [
 		{
-					"name": "editor",
-										"command": "nvim ."
+			"name": "editor",
+			"command": "nvim ."
 		},
 		{
 			"name": "shell"
