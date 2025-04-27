@@ -17,4 +17,4 @@ jobs:
                   npm run format
             - uses: autofix-ci/action@v1
               with:
-                  commit-message: "Apply Autofix"
+                  commit-message: "Apply automated fixes"
