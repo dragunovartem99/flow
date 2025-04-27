@@ -1,6 +1,6 @@
 # https://prettier.io/docs/ci
 
-name: autofix.ci
+name: Auto format
 on:
     pull_request:
     push:
