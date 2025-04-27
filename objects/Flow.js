@@ -1,3 +1,4 @@
+import { validateConfig } from "../utils/validateConfig.js";
 import { Session } from "./tmux/Session.js";
 import { Window } from "./tmux/Window.js";
 
@@ -9,7 +10,9 @@ export class Flow {
 	}
 
 	start() {
-		const session = new Session(this.#config.session);
+		const validConfig = validateConfig(this.#config);
+		const session = new Session(validConfig.session);
+
 		this.#setWindows(session);
 		session.start();
 	}
