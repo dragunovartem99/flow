@@ -18,8 +18,8 @@ export class Flow {
 	}
 
 	#setWindows(session) {
-		for (const window of this.#config.windows) {
-			session.addWindow(new Window(window.name, window.command));
+		for (const { name, command } of this.#config.windows) {
+			session.addWindow(new Window(name, command));
 		}
 	}
 }
