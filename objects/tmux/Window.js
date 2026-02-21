@@ -7,7 +7,10 @@ export class Window {
 
 	constructor(name, keys) {
 		this.#name = name;
-		keys && (this.#keys = keys);
+
+		if (keys) {
+			this.#keys = keys;
+		}
 	}
 
 	set session(session) {
