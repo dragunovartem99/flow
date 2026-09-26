@@ -7,6 +7,6 @@ on:
 
 jobs:
     pipes:
-        uses: dragunovartem99/pipes/.github/workflows/ci-node.yaml@v1.0.1
+        uses: dragunovartem99/pipes/.github/workflows/ci-node.yaml@v1.2.0
         with:
             checks: '["format:check", "lint:check"]'
