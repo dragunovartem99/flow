@@ -53,3 +53,12 @@ npm install --save-dev @dragunovartem99/flow
 ```shell
 npm run flow
 ```
+
+## Development
+
+```sh
+npm ci
+```
+
+Pull requests run `format:check` and `lint:check`, and so does the pre-commit hook. Merging to `main`
+with a pending changeset (`npx changeset`) opens a release PR that publishes to npm once merged
