@@ -1,7 +1,6 @@
 import { ConfigError } from "../objects/error/ConfigError.js";
-
-import { isObject } from "./guards/isObject.js";
 import { isArray } from "./guards/isArray.js";
+import { isObject } from "./guards/isObject.js";
 import { isString } from "./guards/isString.js";
 
 const isNonEmptyString = (str) => isString(str) && str.trim() !== "";

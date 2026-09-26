@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 import path from "path";
-import { Flow } from "./objects/Flow.js";
+
 import { Config } from "./objects/config/Config.js";
+import { Flow } from "./objects/Flow.js";
 
 const cwd = process.cwd();
 
