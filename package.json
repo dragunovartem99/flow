@@ -49,7 +49,7 @@
 		"@dragunovartem99/oxfmt-config": "^2.1.0",
 		"@dragunovartem99/oxlint-config": "^3.0.1",
 		"husky": "^9.1.7",
-		"oxfmt": "^0.70.0",
+		"oxfmt": "^0.71.0",
 		"oxlint": "^1.85.0"
 	}
 }
